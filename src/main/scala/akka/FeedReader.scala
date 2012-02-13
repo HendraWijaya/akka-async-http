@@ -139,7 +139,11 @@ object FeedReader extends App {
         }
 
         val client = new AsyncHttpClient
-        val response = client.prepareGet(url).execute(httpHandler).get()
+        
+        // Please note that the following is blocking. To use Akka capability, one way
+        // is to wrap this in Akka Future and remove the call to "get" as in:
+        // https://github.com/HendraWijaya/syndor/blob/master/syndor-feedbot/src/main/scala/syndor/feedbot/UrlFetcher.scala
+        val response = client.prepareGet(url).execute(httpHandler).get() // Blocking
 
         self reply CompleteFetch(url)
     }
