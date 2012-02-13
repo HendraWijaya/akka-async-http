@@ -1,1 +1,1 @@
-My first attempt to Akka with AsyncHttpClient. This solution is blocking.
+My first attempt to Akka with AsyncHttpClient. This solution is blocking. My second attempt, which is not blocking is in https://github.com/HendraWijaya/syndor
